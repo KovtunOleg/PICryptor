@@ -1,0 +1,89 @@
+PODS:
+  - AFAmazonS3Manager (3.2.1):
+    - AFNetworking/NSURLConnection (~> 2.4)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFOnoResponseSerializer (1.0.0):
+    - AFNetworking (~> 2.2)
+    - Ono (~> 1.0)
+  - FileMD5Hash (2.0.0)
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - ObjectiveSugar (1.1.0)
+  - Ono (1.2.2)
+  - SkyS3Sync (0.29):
+    - AFAmazonS3Manager (~> 3.2)
+    - AFNetworking (~> 2.2)
+    - AFOnoResponseSerializer (~> 1.0)
+    - FileMD5Hash (~> 2.0)
+    - libextobjc (~> 0.4)
+    - ObjectiveSugar (~> 1.1)
+
+DEPENDENCIES:
+  - SkyS3Sync
+
+SPEC CHECKSUMS:
+  AFAmazonS3Manager: 688f9238511bb86011159d0155fcda09838b0e0d
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFOnoResponseSerializer: c02c8bef1d6742ac68f33ecaed41826c9657bc33
+  FileMD5Hash: 3ed69cc19a21ff4d30ae8833fc104275ad2c7de0
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+  Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
+  SkyS3Sync: 13f5add162cbfa3a0f3639de9788a1a00ec7c25d
+
+PODFILE CHECKSUM: 95632187eb506fc664cd12b8322220323f604dff
+
+COCOAPODS: 1.2.0

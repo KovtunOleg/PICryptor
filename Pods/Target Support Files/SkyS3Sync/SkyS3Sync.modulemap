@@ -1,0 +1,6 @@
+framework module SkyS3Sync {
+  umbrella header "SkyS3Sync-umbrella.h"
+
+  export *
+  module * { export * }
+}
