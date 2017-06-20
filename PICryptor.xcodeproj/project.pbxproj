@@ -30,7 +30,6 @@
 		6347C1CD1EEFC7A70086D575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631166D01EEED30900C740F2 /* LaunchScreen.storyboard */; };
 		638670A41EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		638670A51EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
-		638670A61EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -402,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY_PATH=\"${SRCROOT}/${PROJECT_NAME}/Sources/picryptor_key.txt\" # your own path to txt PICryptorKey\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\n    enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $(cat $SECRET_KEY_PATH)\ndone";
+			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\n    enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
 		};
 		AA6132142F658E6BCF2226A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -462,7 +461,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638670A61EF1351C00D91E3F /* picryptor_key.swift in Sources */,
 				631167021EEEDC6A00C740F2 /* PICryptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,7 +644,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PICryptorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks \"$(PROJECT_DIR)/Carthage/Build/iOS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -665,7 +663,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PICryptorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks \"$(PROJECT_DIR)/Carthage/Build/iOS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -689,6 +687,7 @@
 				);
 				INFOPLIST_FILE = PICryptor/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -715,6 +714,7 @@
 				);
 				INFOPLIST_FILE = PICryptor/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptor;
 				PRODUCT_NAME = "$(TARGET_NAME)";

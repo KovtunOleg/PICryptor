@@ -17,7 +17,7 @@ FILE_NAME=$(basename $INPUT_FILE_PATH)
 
 # encrypt file name with openssl rc4+base64
 cd $FILE_DIR
-encryptedFilename=`echo -n $FILE_NAME | openssl rc4 -nosalt -K $SECRET_KEY | base64`
+encryptedFilename=`echo -n $FILE_NAME | openssl rc4 -nosalt -K $SECRET_KEY | base64 | sed "s/\//_/"g`
 
 OUTPUT_FILE_PATH=$OUTPUT_DIR_PATH/$encryptedFilename
 

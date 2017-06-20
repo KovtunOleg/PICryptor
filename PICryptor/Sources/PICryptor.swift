@@ -11,7 +11,8 @@ import CommonCrypto
 
 fileprivate enum PICryptorError: Error {
     case unknownError
-    case emptyKeyError
+    case nilSecretKeyError
+    case emptySecretKeyError
 }
 
 /**
@@ -19,6 +20,11 @@ fileprivate enum PICryptorError: Error {
  */
 @objc open class PICryptor : NSObject {
 
+    /**
+     Raw key material used for RC4 encryption algorithm.
+     */
+    public static var secretKey: Data?
+    
     fileprivate var ref: CCCryptorRef
     
     deinit {
@@ -26,17 +32,21 @@ fileprivate enum PICryptorError: Error {
     }
 
     fileprivate init(for operation: CCOperation) throws {
-        guard !PICryptorKey.isEmpty else {
-            throw PICryptorError.emptyKeyError
+        guard let secretKey = PICryptor.secretKey else {
+            throw PICryptorError.nilSecretKeyError
+        }
+        
+        guard !secretKey.isEmpty else {
+            throw PICryptorError.emptySecretKeyError
         }
         
         let cryptorRefPointer = UnsafeMutablePointer<CCCryptorRef?>.allocate(capacity: 1)
-        PICryptorKey.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> Void in
+        secretKey.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> Void in
             let _ = CCCryptorCreate(operation,
                                     CCAlgorithm(kCCAlgorithmRC4),
                                     CCOptions(kCCOptionECBMode),
                                     bytes,
-                                    PICryptorKey.count,
+                                    secretKey.count,
                                     nil,
                                     cryptorRefPointer
             )
@@ -63,13 +73,13 @@ fileprivate enum PICryptorError: Error {
  * openssl rc4 -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  * 
  * encrypting a string and outputting a base64:
- * echo -n "mystring" | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base64
+ * echo -n "mystring" | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base64 | sed "s/\//_/"g
  * 
  * decrypting contents of a file:
  * openssl rc4 -d -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  *
  * decyrpting a base64 filename:
- * echo -n "VQK2oAJKwFQSMTSJCJFYlKRE01L5Yn30r6w=" | base64 -D | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
+ * echo -n "TQ6jsUBJ2F4d" | sed "s/_/\//"g | base64 -D | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
  */
 fileprivate enum RC4Cryptor {
     public static func decrypt(data: Data) -> Data? {
@@ -132,12 +142,26 @@ public extension Data {
 
 public extension NSString {
     /**
-     Get Rc4+Base64 string representation.
+     Get RC4+Base64 encrypted string representation.
      */
     public func rc4Base64Encrypted() -> NSString? {
         if let data = self.data(using: String.Encoding.utf8.rawValue),
             let encrypted = RC4Cryptor.encrypt(data: data) {
-            return encrypted.base64EncodedString() as NSString
+            let base64 = encrypted.base64EncodedString() as NSString
+            return base64.replacingOccurrences(of: "/", with: "_") as NSString
+        }
+        return nil
+    }
+    
+    /**
+     Get RC4+Base64 decrypted string representation.
+     */
+    public func rc4Base64Decrypted() -> NSString? {
+        let string = self.replacingOccurrences(of: "_", with: "/")
+        if let data = string.data(using: .utf8),
+            let base64 = Data(base64Encoded: data),
+            let decrypted = RC4Cryptor.decrypt(data: base64) {
+            return NSString(data: decrypted as Data, encoding: String.Encoding.utf8.rawValue)
         }
         return nil
     }
@@ -145,12 +169,26 @@ public extension NSString {
 
 public extension String {
     /**
-     Get Rc4+Base64 string representation.
+     Get RC4+Base64 encrypted string representation.
      */
     public func rc4Base64Encrypted() -> String? {
         if let data = self.data(using: .utf8),
             let encrypted = RC4Cryptor.encrypt(data: data) {
-            return encrypted.base64EncodedString()
+            let base64 = encrypted.base64EncodedString()
+            return base64.replacingOccurrences(of: "/", with: "_")
+        }
+        return nil
+    }
+    
+    /**
+     Get RC4+Base64 decrypted string representation.
+     */
+    public func rc4Base64Decrypted() -> String? {
+        let string = self.replacingOccurrences(of: "_", with: "/")
+        if let data = string.data(using: .utf8),
+            let base64 = Data(base64Encoded: data),
+            let decrypted = RC4Cryptor.decrypt(data: base64) {
+            return String(data: decrypted, encoding: .utf8)
         }
         return nil
     }

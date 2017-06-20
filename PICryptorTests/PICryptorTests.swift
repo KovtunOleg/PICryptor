@@ -12,9 +12,17 @@ import XCTest
 class PICryptorTest: XCTestCase {
     
     func testCryptor() {
+        
+        // set PICryptor secret key
+        PICryptor.secretKey = PICryptorSecretKey
+        
         // encrypt the filename, to search it on disk
         let encryptedFilename = "test.json".rc4Base64Encrypted()
         XCTAssertEqual(encryptedFilename, "TQ6jsUBJ2F4d", "failed to encrypt filename")
+        
+        // check backwards decryption
+        let decryptedFilename = encryptedFilename?.rc4Base64Decrypted()
+        XCTAssertEqual(decryptedFilename, "test.json", "failed to encrypt filename")
         
         // form resource file URL
         let URL = Bundle(for: PICryptorTest.self).url(forResource: encryptedFilename, withExtension: nil)

@@ -27,7 +27,10 @@ Released under the [MIT license](LICENSE). Enjoy.
 4. Enable embedded Swift content (for Objective C apps) in the project settings.
 ![Alt text](https://monosnap.com/file/Rmyn6j1mxcrrI2QgVDCOqyWeZShftQ.png)
 
-5. Run `install.sh` script provided with PICryptor framework with your own secret key as a parameter, it will generate all needed symlinks, `picryptor_key.swift` and `picryptor_key.txt` which are necessary for the correct work of the app:
+5. For UnitTests/UITests targets Look for the *Runpath Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
+![Alt text](https://monosnap.com/file/3JI8lY8Bj6xjiIRHiTCUtY71Z3csi4.png)
+
+6. Run `install.sh` script provided with PICryptor framework with your own secret key as a parameter, it will generate all needed symlinks and `picryptor_key.swift` which you need to add into your project:
 ![Alt text](https://monosnap.com/file/3tuWaXoHxt5ZQA8lYbNeANTZa9Djaw.png)
 	``` bash
 	cd <path_to_your_project>/Carthage/Build/iOS/PICryptor.framework
@@ -35,12 +38,40 @@ Released under the [MIT license](LICENSE). Enjoy.
 	```
 
 ## Usage
-
-1.  And now, all you need is just to use several convenience methods which extends `NSData`/`Data` and `NSString`/`String` foundation classes.
+1.  First of all you need to set PICryptor secret key from the generated `picryptor_key.swift` file in the `application(:didFinishLaunchingWithOptions:)` method.
 
     ``` swift
     // Swift
+    
+    import PICryptor
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        PICryptor.secretKey = PICryptorSecretKey
+        return true
+    }
+    ```
+
+    ``` objc
+    // Objective-c
+    
+    #import <PICryptor/PICryptor-Swift.h>
+    
+    - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        PICryptor.secretKey = NSData.piCryptorSecretKey;
+        return YES;
+    }
+    ```
+
+2.  And now, all you need is just to use several convenience methods which extends `NSData`/`Data` and `NSString`/`String` foundation classes.
+
+    ``` swift
+    // Swift
+    
+    import PICryptor
+    
     let encryptedString = unencryptedString.rc4Base64Encrypted()
+    
+    let decryptedString = encryptedString.rc4Base64Decrypted()
 
     let unencryptedData = encryptedData.rc4Decrypted()
 
@@ -49,15 +80,20 @@ Released under the [MIT license](LICENSE). Enjoy.
     
     ``` objc
     // Objective-c
+    
+    #import <PICryptor/PICryptor-Swift.h>
+    
     NSString *encryptedString = [unencryptedString rc4Base64Encrypted];
+    
+    NSString *decryptedString = [encryptedString rc4Base64Decrypted];
 
     NSData *unencryptedData = [encryptedData rc4Decrypted];
 
     NSData *encryptedData = [unencryptedData rc4Encrypted];
     ```
 
-2. If you want to encrypt your bundle files, you should add a new run script phase in your project. And locate it before `Copy Bundle Resources` phase, so your created encrypted files will be added to the bundle successfully.
-    * The script (please, don't forget to change `UNENCRYPTED_DIR_PATH`, `ENCRYPTED_DIR_PATH` and `SECRET_KEY_PATH` with yours)
+3. If you want to encrypt your bundle files, you should add a new run script phase in your project. And locate it before `Copy Bundle Resources` phase, so your created encrypted files will be added to the bundle successfully.
+    * The script (please, don't forget to change `UNENCRYPTED_DIR_PATH`, `ENCRYPTED_DIR_PATH` and `SECRET_KEY` with yours)
 
     ``` bash
 	#!/bin/bash
@@ -66,7 +102,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 	
 	UNENCRYPTED_DIR_PATH="${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted" # your own path to unencrypted folder
 	ENCRYPTED_DIR_PATH="${SRCROOT}/${PROJECT_NAME}/s3_bucket" # your own path to encrypted folder
-	SECRET_KEY_PATH="${SRCROOT}/${PROJECT_NAME}/Sources/picryptor_key.txt" # your own path to txt PICryptorKey
+	SECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)
 	
 	# create encrypted dyrectory if needed
 	mkdir -p $ENCRYPTED_DIR_PATH
@@ -74,13 +110,11 @@ Released under the [MIT license](LICENSE). Enjoy.
 	# encrypt all files in unencrypted directory
 	cd $UNENCRYPTED_DIR_PATH
 	for FILE_NAME in *
-	    do
-	    enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $(cat $SECRET_KEY_PATH)
+		do
+		enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY
 	done
-
-	# generate swift PICryptorKey
-	cat ~/.picryptor_key.txt | awk '{ s = "// this is an auto generated file\n\nimport Foundation\n\nlet PICryptorKey = Data(bytes: [0x"; for (i=1;i<length($0);i+=2) s = s substr($0,i,2) ", 0x"; s = substr(s,1,length(s)-4); s = s "])"; print s }' > $PICRYPTOR_KEY_SWIFT_PATH
-    ```
+	
+	```
     &#8291;
     * Put all the files which you want to encrypt in one folder and add it as a reference folder into your project (notice don't add it to any project targets!).
 
@@ -90,9 +124,9 @@ Released under the [MIT license](LICENSE). Enjoy.
     ![Alt text](https://monosnap.com/file/4JarRmRgeK47dKaGs5OsNm7ahTwOjm.png)
     * So when you are done, everything should look like this.
 
-    ![Alt text](https://monosnap.com/file/jG5f2l8HdTKqvWVwXVWe2msVpaJvPa.png)
+    ![Alt text](https://monosnap.com/file/Ovi5MPI94YJAdV216m9O3EqNfqjbDe.png)
 
-3. If you want to upload your unecrypted files to Amazon S3 as encrypted in one action in the terminal: 
+4. If you want to upload your unecrypted files to Amazon S3 as encrypted in one action in the terminal: 
 
     ``` bash
     s3cmd_put_enc.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA

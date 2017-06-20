@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var s3SyncManager: SkyS3SyncManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // set PICryptor secret key from the generated picryptor_key.swift file
+        PICryptor.secretKey = PICryptorSecretKey
+        
         // configure your sky S3 manager
         s3SyncManager = SkyS3SyncManager.init(s3AccessKey: #(Amazon S3 Access Key),
                                               secretKey: #(Amazon S3 Secret Key),
