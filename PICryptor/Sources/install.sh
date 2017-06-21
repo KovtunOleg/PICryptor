@@ -8,12 +8,12 @@ fi
 
 # create symlinks for PICryptor scrypts
 BIN=/usr/local/bin
-unlink $BIN/s3cmd_put_enc.sh
-unlink $BIN/enc_file.sh
-ln -s $PWD/s3cmd_put_enc.sh $BIN/s3cmd_put_enc.sh
-ln -s $PWD/enc_file.sh $BIN/enc_file.sh
-chmod +x $BIN/s3cmd_put_enc.sh
-chmod +x $BIN/enc_file.sh
+rm -f $BIN/pi_s3cmd_put_enc.sh
+rm -f $BIN/pi_enc_file.sh
+ln -s $PWD/pi_s3cmd_put_enc.sh $BIN/pi_s3cmd_put_enc.sh
+ln -s $PWD/pi_enc_file.sh $BIN/pi_enc_file.sh
+chmod +x $BIN/pi_s3cmd_put_enc.sh
+chmod +x $BIN/pi_enc_file.sh
 
 # generate picryptor_key.swift
 echo $1 | awk '{ s = "// this is an auto generated file\n\n \

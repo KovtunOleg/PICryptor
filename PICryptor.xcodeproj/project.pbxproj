@@ -14,9 +14,9 @@
 		6303902C1EEFD4F4003205FF /* s3_bucket in Resources */ = {isa = PBXBuildFile; fileRef = 6303902B1EEFD4F4003205FF /* s3_bucket */; };
 		630390651EF03F18003205FF /* TQ6jsUBJ2F4d in Resources */ = {isa = PBXBuildFile; fileRef = 630390641EF03F18003205FF /* TQ6jsUBJ2F4d */; };
 		630DBDCA1EF25BE000F2AAF5 /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDC91EF25BE000F2AAF5 /* install.sh */; };
-		630DBDD01EF2643400F2AAF5 /* enc_dir.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCD1EF2643400F2AAF5 /* enc_dir.sh */; };
-		630DBDD21EF2643400F2AAF5 /* s3cmd_put_enc.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCF1EF2643400F2AAF5 /* s3cmd_put_enc.sh */; };
-		630DBDD41EF2658600F2AAF5 /* enc_file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDD31EF2658600F2AAF5 /* enc_file.sh */; };
+		630DBDD01EF2643400F2AAF5 /* pi_enc_dir.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */; };
+		630DBDD21EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */; };
+		630DBDD41EF2658600F2AAF5 /* pi_enc_file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */; };
 		631166C81EEED30900C740F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166C71EEED30900C740F2 /* AppDelegate.swift */; };
 		631166CA1EEED30900C740F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166C91EEED30900C740F2 /* ViewController.swift */; };
 		631166CF1EEED30900C740F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631166CE1EEED30900C740F2 /* Assets.xcassets */; };
@@ -74,9 +74,9 @@
 		6303902B1EEFD4F4003205FF /* s3_bucket */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3_bucket; sourceTree = "<group>"; };
 		630390641EF03F18003205FF /* TQ6jsUBJ2F4d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TQ6jsUBJ2F4d; sourceTree = "<group>"; };
 		630DBDC91EF25BE000F2AAF5 /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
-		630DBDCD1EF2643400F2AAF5 /* enc_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = enc_dir.sh; sourceTree = "<group>"; };
-		630DBDCF1EF2643400F2AAF5 /* s3cmd_put_enc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = s3cmd_put_enc.sh; sourceTree = "<group>"; };
-		630DBDD31EF2658600F2AAF5 /* enc_file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = enc_file.sh; sourceTree = "<group>"; };
+		630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_dir.sh; sourceTree = "<group>"; };
+		630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_s3cmd_put_enc.sh; sourceTree = "<group>"; };
+		630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_file.sh; sourceTree = "<group>"; };
 		631166C41EEED30900C740F2 /* PICryptorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICryptorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631166C71EEED30900C740F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631166C91EEED30900C740F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,9 +195,9 @@
 				631166ED1EEED3B300C740F2 /* PICryptor.swift */,
 				638670A31EF1351C00D91E3F /* picryptor_key.swift */,
 				630DBDC91EF25BE000F2AAF5 /* install.sh */,
-				630DBDCD1EF2643400F2AAF5 /* enc_dir.sh */,
-				630DBDD31EF2658600F2AAF5 /* enc_file.sh */,
-				630DBDCF1EF2643400F2AAF5 /* s3cmd_put_enc.sh */,
+				630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */,
+				630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */,
+				630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -364,10 +364,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630DBDD21EF2643400F2AAF5 /* s3cmd_put_enc.sh in Resources */,
-				630DBDD41EF2658600F2AAF5 /* enc_file.sh in Resources */,
+				630DBDD21EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh in Resources */,
+				630DBDD41EF2658600F2AAF5 /* pi_enc_file.sh in Resources */,
 				630DBDCA1EF25BE000F2AAF5 /* install.sh in Resources */,
-				630DBDD01EF2643400F2AAF5 /* enc_dir.sh in Resources */,
+				630DBDD01EF2643400F2AAF5 /* pi_enc_dir.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\n    enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
+			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\nENC_FILE_SH=\"${SRCROOT}/${PROJECT_NAME}/Sources/pi_enc_file.sh\" # your own path to pi_enc_file.sh script\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\nsh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
 		};
 		AA6132142F658E6BCF2226A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
