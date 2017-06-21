@@ -13,7 +13,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 1.  [Carthage](https://github.com/carthage/carthage) is the recommended way to install PICryptor. Add the following to your Cartfile:
 
 	``` ruby
-	git "git@gitlab.postindustria.com:ios/PICryptor.git"
+	github "KovtunOleg/PICryptor"
 	```
 
 2.  Run in terminal:
@@ -22,7 +22,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 	```
 
 3. Then add `PICryptor` and `CommonCrypto` frameworks to *Link Binary with libraries* and *Embed Frameworks* build phases.
-![Alt text](https://monosnap.com/file/nGhqirq3NAgt8rr6KghJ4Ye8UQ3ZMY.png)
+![Alt text](https://monosnap.com/file/WpFXwzwAwNPg3rOpdd9nlHHNVq9urx.png)
 
 4. Enable embedded Swift content (for Objective C apps) in the project settings.
 ![Alt text](https://monosnap.com/file/Rmyn6j1mxcrrI2QgVDCOqyWeZShftQ.png)
@@ -31,7 +31,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 ![Alt text](https://monosnap.com/file/3JI8lY8Bj6xjiIRHiTCUtY71Z3csi4.png)
 
 6. Run `install.sh` script provided with PICryptor framework with your own secret key as a parameter, it will generate all needed symlinks and `picryptor_key.swift` which you need to add into your project:
-![Alt text](https://monosnap.com/file/3tuWaXoHxt5ZQA8lYbNeANTZa9Djaw.png)
+![Alt text](https://monosnap.com/file/elq54pnNy6mcUcc6GVQv79ue9L3Qo1.png)
 	``` bash
 	cd <path_to_your_project>/Carthage/Build/iOS/PICryptor.framework
 	sh install.sh E86A53E1E6B5E1321615FD9FB90A7CAA
@@ -93,7 +93,7 @@ Released under the [MIT license](LICENSE). Enjoy.
     ```
 
 3. If you want to encrypt your bundle files, you should add a new run script phase in your project. And locate it before `Copy Bundle Resources` phase, so your created encrypted files will be added to the bundle successfully.
-    * The script (please, don't forget to change `UNENCRYPTED_DIR_PATH`, `ENCRYPTED_DIR_PATH` and `SECRET_KEY` with yours)
+    * The script (please, don't forget to change `UNENCRYPTED_DIR_PATH`, `ENCRYPTED_DIR_PATH`, `SECRET_KEY` and `ENC_FILE_SH` with yours)
 
     ``` bash
 	#!/bin/bash
@@ -103,6 +103,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 	UNENCRYPTED_DIR_PATH="${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted" # your own path to unencrypted folder
 	ENCRYPTED_DIR_PATH="${SRCROOT}/${PROJECT_NAME}/s3_bucket" # your own path to encrypted folder
 	SECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)
+	ENC_FILE_SH="${SRCROOT}/${PROJECT_NAME}/Sources/pi_enc_file.sh" # your own path to pi_enc_file.sh script
 	
 	# create encrypted dyrectory if needed
 	mkdir -p $ENCRYPTED_DIR_PATH
@@ -111,7 +112,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 	cd $UNENCRYPTED_DIR_PATH
 	for FILE_NAME in *
 		do
-		enc_file.sh $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY
+		sh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY
 	done
 	
 	```
@@ -124,12 +125,12 @@ Released under the [MIT license](LICENSE). Enjoy.
     ![Alt text](https://monosnap.com/file/4JarRmRgeK47dKaGs5OsNm7ahTwOjm.png)
     * So when you are done, everything should look like this.
 
-    ![Alt text](https://monosnap.com/file/Ovi5MPI94YJAdV216m9O3EqNfqjbDe.png)
+    ![Alt text](https://monosnap.com/file/NlBuwfPRirw8yroop3CeOGQ7zSKEF7.png)
 
 4. If you want to upload your unecrypted files to Amazon S3 as encrypted in one action in the terminal: 
 
     ``` bash
-    s3cmd_put_enc.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    pi_s3cmd_put_enc.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
     ```
 
 For more information see our PICryptor test app (please, don't forget to change `SkyS3SyncManager` configuration with yours).
