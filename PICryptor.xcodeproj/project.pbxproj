@@ -26,11 +26,6 @@
 		6399C66A1F06404100C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
 		6399C66B1F06404D00C0096E /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
-		6399C6731F06485300C0096E /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C66F1F06485300C0096E /* install.sh */; };
-		6399C6741F06485300C0096E /* pi_enc_dir.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6701F06485300C0096E /* pi_enc_dir.sh */; };
-		6399C6751F06485300C0096E /* pi_enc_file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6711F06485300C0096E /* pi_enc_file.sh */; };
-		6399C6761F06485300C0096E /* pi_s3cmd_put_enc.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */; };
-		6399C6781F0648C700C0096E /* genkey.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6771F0648C700C0096E /* genkey.sh */; };
 		BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,11 +62,6 @@
 		631166F71EEEDC6100C740F2 /* PICryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICryptor.h; sourceTree = "<group>"; };
 		631166F81EEEDC6100C740F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638670A31EF1351C00D91E3F /* picryptor_key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picryptor_key.swift; sourceTree = "<group>"; };
-		6399C66F1F06485300C0096E /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
-		6399C6701F06485300C0096E /* pi_enc_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_dir.sh; sourceTree = "<group>"; };
-		6399C6711F06485300C0096E /* pi_enc_file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_file.sh; sourceTree = "<group>"; };
-		6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_s3cmd_put_enc.sh; sourceTree = "<group>"; };
-		6399C6771F0648C700C0096E /* genkey.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genkey.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,11 +166,6 @@
 				630390201EEFCCFF003205FF /* CommonCrypto.framework */,
 				631166ED1EEED3B300C740F2 /* PICryptor.swift */,
 				638670A31EF1351C00D91E3F /* picryptor_key.swift */,
-				6399C6771F0648C700C0096E /* genkey.sh */,
-				6399C66F1F06485300C0096E /* install.sh */,
-				6399C6701F06485300C0096E /* pi_enc_dir.sh */,
-				6399C6711F06485300C0096E /* pi_enc_file.sh */,
-				6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -347,11 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6399C6741F06485300C0096E /* pi_enc_dir.sh in Resources */,
-				6399C6731F06485300C0096E /* install.sh in Resources */,
-				6399C6781F0648C700C0096E /* genkey.sh in Resources */,
-				6399C6751F06485300C0096E /* pi_enc_file.sh in Resources */,
-				6399C6761F06485300C0096E /* pi_s3cmd_put_enc.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\nENC_FILE_SH=\"${SRCROOT}/${PROJECT_NAME}/Sources/pi_enc_file.sh\" # your own path to pi_enc_file.sh script\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\nsh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
+			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\nENC_FILE_SH=\"${SRCROOT}/Scripts/pi_enc_file.sh\" # your own path to pi_enc_file.sh script\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\nsh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
 		};
 		6399C66C1F06406800C0096E /* [Carthage] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
