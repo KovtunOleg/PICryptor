@@ -7,16 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630390211EEFCCFF003205FF /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		630390221EEFCD05003205FF /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		630390231EEFCD09003205FF /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		630390241EEFCD0C003205FF /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		6303902C1EEFD4F4003205FF /* s3_bucket in Resources */ = {isa = PBXBuildFile; fileRef = 6303902B1EEFD4F4003205FF /* s3_bucket */; };
 		630390651EF03F18003205FF /* TQ6jsUBJ2F4d in Resources */ = {isa = PBXBuildFile; fileRef = 630390641EF03F18003205FF /* TQ6jsUBJ2F4d */; };
-		630DBDCA1EF25BE000F2AAF5 /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDC91EF25BE000F2AAF5 /* install.sh */; };
-		630DBDD01EF2643400F2AAF5 /* pi_enc_dir.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */; };
-		630DBDD21EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */; };
-		630DBDD41EF2658600F2AAF5 /* pi_enc_file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */; };
 		631166C81EEED30900C740F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166C71EEED30900C740F2 /* AppDelegate.swift */; };
 		631166CA1EEED30900C740F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166C91EEED30900C740F2 /* ViewController.swift */; };
 		631166CF1EEED30900C740F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631166CE1EEED30900C740F2 /* Assets.xcassets */; };
@@ -24,12 +18,19 @@
 		631166EE1EEED3B300C740F2 /* PICryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166ED1EEED3B300C740F2 /* PICryptor.swift */; };
 		631166EF1EEED3B300C740F2 /* PICryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166ED1EEED3B300C740F2 /* PICryptor.swift */; };
 		631166F91EEEDC6100C740F2 /* PICryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 631166F71EEEDC6100C740F2 /* PICryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		631166FD1EEEDC6100C740F2 /* PICryptor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		631167021EEEDC6A00C740F2 /* PICryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166ED1EEED3B300C740F2 /* PICryptor.swift */; };
 		6347C1C51EEFC70C0086D575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631166CB1EEED30900C740F2 /* Main.storyboard */; };
 		6347C1CD1EEFC7A70086D575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631166D01EEED30900C740F2 /* LaunchScreen.storyboard */; };
 		638670A41EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		638670A51EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
+		6399C66A1F06404100C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
+		6399C66B1F06404D00C0096E /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
+		6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
+		6399C6731F06485300C0096E /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C66F1F06485300C0096E /* install.sh */; };
+		6399C6741F06485300C0096E /* pi_enc_dir.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6701F06485300C0096E /* pi_enc_dir.sh */; };
+		6399C6751F06485300C0096E /* pi_enc_file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6711F06485300C0096E /* pi_enc_file.sh */; };
+		6399C6761F06485300C0096E /* pi_s3cmd_put_enc.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */; };
+		6399C6781F0648C700C0096E /* genkey.sh in Resources */ = {isa = PBXBuildFile; fileRef = 6399C6771F0648C700C0096E /* genkey.sh */; };
 		BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,29 +42,7 @@
 			remoteGlobalIDString = 631166C31EEED30900C740F2;
 			remoteInfo = PICryptor;
 		};
-		631166FA1EEEDC6100C740F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 631166BC1EEED30900C740F2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 631166F41EEEDC6100C740F2;
-			remoteInfo = PICryptor;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		631167011EEEDC6100C740F2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				631166FD1EEEDC6100C740F2 /* PICryptor.framework in Embed Frameworks */,
-				630390211EEFCCFF003205FF /* CommonCrypto.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0EBC3942A566498D1EA657EE /* Pods-PICryptorApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PICryptorApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PICryptorApp/Pods-PICryptorApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,10 +52,6 @@
 		630390271EEFD05B003205FF /* s3_bucket_unencrypted */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3_bucket_unencrypted; sourceTree = "<group>"; };
 		6303902B1EEFD4F4003205FF /* s3_bucket */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3_bucket; sourceTree = "<group>"; };
 		630390641EF03F18003205FF /* TQ6jsUBJ2F4d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TQ6jsUBJ2F4d; sourceTree = "<group>"; };
-		630DBDC91EF25BE000F2AAF5 /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
-		630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_dir.sh; sourceTree = "<group>"; };
-		630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_s3cmd_put_enc.sh; sourceTree = "<group>"; };
-		630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_file.sh; sourceTree = "<group>"; };
 		631166C41EEED30900C740F2 /* PICryptorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PICryptorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631166C71EEED30900C740F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631166C91EEED30900C740F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +67,11 @@
 		631166F71EEEDC6100C740F2 /* PICryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICryptor.h; sourceTree = "<group>"; };
 		631166F81EEEDC6100C740F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638670A31EF1351C00D91E3F /* picryptor_key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picryptor_key.swift; sourceTree = "<group>"; };
+		6399C66F1F06485300C0096E /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
+		6399C6701F06485300C0096E /* pi_enc_dir.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_dir.sh; sourceTree = "<group>"; };
+		6399C6711F06485300C0096E /* pi_enc_file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_enc_file.sh; sourceTree = "<group>"; };
+		6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pi_s3cmd_put_enc.sh; sourceTree = "<group>"; };
+		6399C6771F0648C700C0096E /* genkey.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = genkey.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630390221EEFCD05003205FF /* CommonCrypto.framework in Frameworks */,
+				6399C66B1F06404D00C0096E /* CommonCrypto.framework in Frameworks */,
+				6399C66A1F06404100C0096E /* PICryptor.framework in Frameworks */,
 				BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */,
 				630390231EEFCD09003205FF /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,10 +176,11 @@
 				630390201EEFCCFF003205FF /* CommonCrypto.framework */,
 				631166ED1EEED3B300C740F2 /* PICryptor.swift */,
 				638670A31EF1351C00D91E3F /* picryptor_key.swift */,
-				630DBDC91EF25BE000F2AAF5 /* install.sh */,
-				630DBDCD1EF2643400F2AAF5 /* pi_enc_dir.sh */,
-				630DBDD31EF2658600F2AAF5 /* pi_enc_file.sh */,
-				630DBDCF1EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh */,
+				6399C6771F0648C700C0096E /* genkey.sh */,
+				6399C66F1F06485300C0096E /* install.sh */,
+				6399C6701F06485300C0096E /* pi_enc_dir.sh */,
+				6399C6711F06485300C0096E /* pi_enc_file.sh */,
+				6399C6721F06485300C0096E /* pi_s3cmd_put_enc.sh */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -242,14 +225,13 @@
 				631166C11EEED30900C740F2 /* Frameworks */,
 				6347C1C41EEFBE420086D575 /* [PICryptor] Encrypt S3 Bucket */,
 				631166C21EEED30900C740F2 /* Resources */,
-				631167011EEEDC6100C740F2 /* Embed Frameworks */,
 				AA6132142F658E6BCF2226A7 /* [CP] Embed Pods Frameworks */,
 				20FE2ADFA7E7BC739EEDA66C /* [CP] Copy Pods Resources */,
+				6399C66C1F06406800C0096E /* [Carthage] Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				631166FB1EEEDC6100C740F2 /* PBXTargetDependency */,
 			);
 			name = PICryptorApp;
 			productName = PICryptor;
@@ -263,6 +245,7 @@
 				631166D41EEED30900C740F2 /* Sources */,
 				631166D51EEED30900C740F2 /* Frameworks */,
 				631166D61EEED30900C740F2 /* Resources */,
+				6399C66D1F06430C00C0096E /* [Carthage] Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,10 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630DBDD21EF2643400F2AAF5 /* pi_s3cmd_put_enc.sh in Resources */,
-				630DBDD41EF2658600F2AAF5 /* pi_enc_file.sh in Resources */,
-				630DBDCA1EF25BE000F2AAF5 /* install.sh in Resources */,
-				630DBDD01EF2643400F2AAF5 /* pi_enc_dir.sh in Resources */,
+				6399C6741F06485300C0096E /* pi_enc_dir.sh in Resources */,
+				6399C6731F06485300C0096E /* install.sh in Resources */,
+				6399C6781F0648C700C0096E /* genkey.sh in Resources */,
+				6399C6751F06485300C0096E /* pi_enc_file.sh in Resources */,
+				6399C6761F06485300C0096E /* pi_s3cmd_put_enc.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +386,38 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\nexport PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin\n\nUNENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket_unencrypted\" # your own path to unencrypted folder\nENCRYPTED_DIR_PATH=\"${SRCROOT}/${PROJECT_NAME}/s3_bucket\" # your own path to encrypted folder\nSECRET_KEY=E86A53E1E6B5E1321615FD9FB90A7CAA # your own secret key for openssl (can be found in picryptor_key.swift file)\nENC_FILE_SH=\"${SRCROOT}/${PROJECT_NAME}/Sources/pi_enc_file.sh\" # your own path to pi_enc_file.sh script\n\n# create encrypted dyrectory if needed\nmkdir -p $ENCRYPTED_DIR_PATH\n\n# encrypt all files in unencrypted directory\ncd $UNENCRYPTED_DIR_PATH\nfor FILE_NAME in *\n    do\nsh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY\ndone\n";
+		};
+		6399C66C1F06406800C0096E /* [Carthage] Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+			);
+			name = "[Carthage] Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6399C66D1F06430C00C0096E /* [Carthage] Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+			);
+			name = "[Carthage] Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		AA6132142F658E6BCF2226A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -472,11 +488,6 @@
 			isa = PBXTargetDependency;
 			target = 631166C31EEED30900C740F2 /* PICryptorApp */;
 			targetProxy = 631166D91EEED30900C740F2 /* PBXContainerItemProxy */;
-		};
-		631166FB1EEEDC6100C740F2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 631166F41EEEDC6100C740F2 /* PICryptor */;
-			targetProxy = 631166FA1EEEDC6100C740F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -599,7 +610,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4517B098523780E07D7B49CF /* Pods-PICryptorApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 58R6L779LE;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -607,7 +617,6 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PICryptor/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -618,7 +627,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0EBC3942A566498D1EA657EE /* Pods-PICryptorApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 58R6L779LE;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -626,7 +634,6 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PICryptor/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -639,12 +646,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 58R6L779LE;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = PICryptorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks \"$(PROJECT_DIR)/Carthage/Build/iOS\"";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -658,12 +662,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 58R6L779LE;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = PICryptorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks \"$(PROJECT_DIR)/Carthage/Build/iOS\"";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

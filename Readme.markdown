@@ -21,20 +21,31 @@ Released under the [MIT license](LICENSE). Enjoy.
 	carthage update --platform iOS
 	```
 
-3. Then add `PICryptor` and `CommonCrypto` frameworks to *Link Binary with libraries* and *Embed Frameworks* build phases.
-![Alt text](https://monosnap.com/file/WpFXwzwAwNPg3rOpdd9nlHHNVq9urx.png)
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `PICryptor` and `CommonCrypto` frameworks from the Carthage/Build/iOS folder on disk. 
+On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: /bin/sh), add the following contents to the script area below the shell:
+``` bash
+/usr/local/bin/carthage copy-frameworks
+```
+Add the paths to the frameworks you want to use under “Input Files”, e.g.:
+``` bash
+$(SRCROOT)/Carthage/Build/iOS/PICryptor.framework
+$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework
+```
+![Alt text](https://monosnap.com/file/vjAzRplVneWbp2S780cyAWItyEftaa.png)
 
 4. Enable embedded Swift content (for Objective C apps) in the project settings.
 ![Alt text](https://monosnap.com/file/Rmyn6j1mxcrrI2QgVDCOqyWeZShftQ.png)
 
-5. For UnitTests/UITests targets Look for the *Runpath Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
-![Alt text](https://monosnap.com/file/3JI8lY8Bj6xjiIRHiTCUtY71Z3csi4.png)
+5. For UnitTests/UITests targets Look for the *Framework Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
+![Alt text](https://monosnap.com/file/r5ZUscoOTH8csq7DCJjHMiKTiq7Aqi.png)
 
-6. Run `install.sh` script provided with PICryptor framework with your own secret key as a parameter, it will generate all needed symlinks and `picryptor_key.swift` which you need to add into your project:
+6. Run `install.sh` script provided with PICryptor framework, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project:
 ![Alt text](https://monosnap.com/file/elq54pnNy6mcUcc6GVQv79ue9L3Qo1.png)
 	``` bash
 	cd <path_to_your_project>/Carthage/Build/iOS/PICryptor.framework
-	sh install.sh E86A53E1E6B5E1321615FD9FB90A7CAA
+	chmod u+x install.sh
+	./install.sh
+	./genkey.sh E86A53E1E6B5E1321615FD9FB90A7CAA > picryptor_key.swift
 	```
 
 ## Usage
