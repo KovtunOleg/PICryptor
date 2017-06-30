@@ -13,7 +13,7 @@ Released under the [MIT license](LICENSE). Enjoy.
 1.  [Carthage](https://github.com/carthage/carthage) is the recommended way to install PICryptor. Add the following to your Cartfile:
 
     ``` ruby
-    github "KovtunOleg/PICryptor"
+    git "git@gitlab.postindustria.com:ios/PICryptor.git"
     ```
 
 2.  Run in terminal:
@@ -50,12 +50,12 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 5. For UnitTests/UITests targets Look for the *Framework Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
 ![Alt text](https://monosnap.com/file/r5ZUscoOTH8csq7DCJjHMiKTiq7Aqi.png)
 
-6. Run `install.sh` script provided with PICryptor repo, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
+6. Copy *Scripts* folder provided with PICryptor repo into your project's repo and run `install.sh` script, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
 
-    ![Alt text](https://monosnap.com/file/ONEqfcsUJKb51yRn2JRvqlvYtoxzDf.png)
+    ![Alt text](https://monosnap.com/file/P85J5Mhp0Iwdi35fHqCwYOBBO0bqSd.png)
     
     ``` bash
-    cd <path_to_picryptor_repo>/Scripts
+    cd <path_to_your_project>/Scripts
     chmod u+x install.sh
     ./install.sh
     ./genkey.sh E86A53E1E6B5E1321615FD9FB90A7CAA > picryptor_key.swift
@@ -151,10 +151,22 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 
     ![Alt text](https://monosnap.com/file/YdSNlYWpsFYbdoMBin6YCJO9VmnMjW.png)
 
-4. If you want to upload your unecrypted files to Amazon S3 as encrypted in one action in the terminal: 
+4. If you want to upload an unencrypted file to the Amazon S3 encrypted bucket: 
 
     ``` bash
     pi_s3cmd_put_enc.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    ```
+
+5. If you want to download a decrypted file from the Amazon S3 encrypted bucket:
+    
+    ``` bash
+    pi_s3cmd_get_dec.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    ```
+
+6. If you want to list decrypted objects in the Amazon S3 encrypted bucket:
+    
+    ``` bash
+    pi_s3cmd_ls_dec.sh s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
     ```
 
 For more information see our PICryptor test app (please, don't forget to change `SkyS3SyncManager` configuration with yours).
