@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## pi_1.4
+scripts should accept key as a first param
+
 ## pi_1.3
 develop decryption util scripts
 remove scripts from the framework bundle

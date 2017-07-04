@@ -50,12 +50,12 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 5. For UnitTests/UITests targets Look for the *Framework Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
 ![Alt text](https://monosnap.com/file/r5ZUscoOTH8csq7DCJjHMiKTiq7Aqi.png)
 
-6. Copy *Scripts* folder provided with PICryptor repo into your project's repo and run `install.sh` script, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
+6. Run `install.sh` script located in `Carthage/Checkouts/PICryptor/Scripts` folder, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
 
-    ![Alt text](https://monosnap.com/file/P85J5Mhp0Iwdi35fHqCwYOBBO0bqSd.png)
+    ![Alt text](https://monosnap.com/file/19rv3rlFPYhztdLbcoZlFW0RqppWiu.png)
     
     ``` bash
-    cd <path_to_your_project>/Scripts
+    cd Carthage/Checkouts/PICryptor/Scripts
     chmod u+x install.sh
     ./install.sh
     ./genkey.sh E86A53E1E6B5E1321615FD9FB90A7CAA > picryptor_key.swift
@@ -136,7 +136,7 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 	cd $UNENCRYPTED_DIR_PATH
 	for FILE_NAME in *
 		do
-		sh $ENC_FILE_SH $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH $SECRET_KEY
+		sh $ENC_FILE_SH $SECRET_KEY $PWD/$FILE_NAME $ENCRYPTED_DIR_PATH
 	done
 	
 	```
@@ -154,19 +154,19 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 4. If you want to upload an unencrypted file to the Amazon S3 encrypted bucket: 
 
     ``` bash
-    pi_s3cmd_put_enc.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    pi_s3cmd_put_enc.sh E86A53E1E6B5E1321615FD9FB90A7CAA test.json s3://bucket
     ```
 
 5. If you want to download a decrypted file from the Amazon S3 encrypted bucket:
     
     ``` bash
-    pi_s3cmd_get_dec.sh test.json s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    pi_s3cmd_get_dec.sh E86A53E1E6B5E1321615FD9FB90A7CAA test.json s3://bucket
     ```
 
 6. If you want to list decrypted objects in the Amazon S3 encrypted bucket:
     
     ``` bash
-    pi_s3cmd_ls_dec.sh s3://bucket E86A53E1E6B5E1321615FD9FB90A7CAA
+    pi_s3cmd_ls_dec.sh E86A53E1E6B5E1321615FD9FB90A7CAA s3://bucket
     ```
 
 For more information see our PICryptor test app (please, don't forget to change `SkyS3SyncManager` configuration with yours).
