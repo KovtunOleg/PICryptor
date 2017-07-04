@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.4
+scripts should accept key as a first param
+
 ## 1.3
 develop decryption util scripts
 remove scripts from the framework bundle
