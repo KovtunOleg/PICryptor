@@ -4,6 +4,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 SECRET_KEY=$1
 BUCKET=$2
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # show help if needed
 if [[ $# -lt 2 ]]; then
@@ -16,5 +17,5 @@ for ENC_FILE_NAME in $(s3cmd ls $BUCKET | awk -F"$BUCKET/" '{ print $NF }')
 	do
 	
 	# decrypt file names
-	echo $(pi_dec_filename.sh $SECRET_KEY $ENC_FILE_NAME)
+	echo $($SCRIPT_PATH/pi_dec_filename.sh $SECRET_KEY $ENC_FILE_NAME)
 done 
