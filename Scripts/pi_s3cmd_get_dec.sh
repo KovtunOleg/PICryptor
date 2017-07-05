@@ -5,6 +5,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 SECRET_KEY=$1
 FILE_NAME=$2
 BUCKET=$3
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # show help if needed
 if [[ $# -lt 3 ]]; then
@@ -13,13 +14,13 @@ if [[ $# -lt 3 ]]; then
 fi
 
 # transform the file name before downloading from S3
-ENC_FILE_NAME=$(pi_enc_filename.sh $SECRET_KEY $FILE_NAME)
+ENC_FILE_NAME=$($SCRIPT_PATH/pi_enc_filename.sh $SECRET_KEY $FILE_NAME)
 
 # download from Amazon S3
 s3cmd get $BUCKET/$ENC_FILE_NAME
 
 # get an unencrypted content and filename
-DEC_FILE_PATH=$(pi_dec_file.sh $SECRET_KEY $ENC_FILE_NAME $PWD)
+DEC_FILE_PATH=$($SCRIPT_PATH/pi_dec_file.sh $SECRET_KEY $ENC_FILE_NAME $PWD)
 
 # remove temporary file
 rm -f $ENC_FILE_NAME

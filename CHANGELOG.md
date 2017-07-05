@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.5
+determine the path of the executing BASH script
+
 ## 1.4
 scripts should accept key as a first param
 

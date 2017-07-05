@@ -7,7 +7,7 @@ FILE_NAME=$2
 
 # show help if needed
 if [[ $# -lt 2 ]]; then
-    echo "Usage: pi_enc_file.sh SECRET_KEY FILE_NAME"
+    echo "Usage: pi_enc_filename.sh SECRET_KEY FILE_NAME"
     exit 1
 fi
 
