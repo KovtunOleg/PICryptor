@@ -12,4 +12,5 @@ if [[ $# -lt 2 ]]; then
 fi
 
 # return decrypted file name
-echo `echo -n $FILE_NAME | sed "s/_/\//"g | base64 -D | openssl rc4 -d -nosalt -K $SECRET_KEY`
+DATA=$(python -c "import sys, urllib as ul; print ul.unquote_plus('$FILE_NAME')")
+echo `echo -n $DATA | base64 -D | openssl rc4 -d -nosalt -K $SECRET_KEY`

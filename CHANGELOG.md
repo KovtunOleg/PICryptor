@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## pi_1.6
+use url encode/decode for file names
+
 ## pi_1.5
 determine the path of the executing BASH script
 
