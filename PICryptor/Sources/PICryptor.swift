@@ -73,13 +73,13 @@ fileprivate enum PICryptorError: Error {
  * openssl rc4 -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  * 
  * encrypting a string and outputting a base64:
- * echo -n "mystring" | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base64 | sed "s/\//_/"g
+ * echo -n url_encoded_file_name | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base64
  * 
  * decrypting contents of a file:
  * openssl rc4 -d -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  *
  * decyrpting a base64 filename:
- * echo -n "TQ6jsUBJ2F4d" | sed "s/_/\//"g | base64 -D | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
+ * echo -n url_decoded_file_name | base64 -D | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
  */
 fileprivate enum RC4Cryptor {
     public static func decrypt(data: Data) -> Data? {
@@ -147,8 +147,8 @@ public extension NSString {
     public func rc4Base64Encrypted() -> NSString? {
         if let data = self.data(using: String.Encoding.utf8.rawValue),
             let encrypted = RC4Cryptor.encrypt(data: data) {
-            let base64 = encrypted.base64EncodedString() as NSString
-            return base64.replacingOccurrences(of: "/", with: "_") as NSString
+            let base64 = encrypted.base64EncodedString()
+            return base64.RFC3986UnreservedEncoded as NSString?
         }
         return nil
     }
@@ -157,17 +157,25 @@ public extension NSString {
      Get RC4+Base64 decrypted string representation.
      */
     public func rc4Base64Decrypted() -> NSString? {
-        let string = self.replacingOccurrences(of: "_", with: "/")
-        if let data = string.data(using: .utf8),
-            let base64 = Data(base64Encoded: data),
-            let decrypted = RC4Cryptor.decrypt(data: base64) {
-            return NSString(data: decrypted as Data, encoding: String.Encoding.utf8.rawValue)
+        if let string = self.removingPercentEncoding {
+            if let data = string.data(using: .utf8),
+                let base64 = Data(base64Encoded: data),
+                let decrypted = RC4Cryptor.decrypt(data: base64) {
+                return NSString(data: decrypted as Data, encoding: String.Encoding.utf8.rawValue)
+            }
         }
         return nil
     }
 }
 
 public extension String {
+    
+    var RFC3986UnreservedEncoded: String? {
+        let unreservedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+        let unreservedCharsSet: CharacterSet = CharacterSet(charactersIn: unreservedChars)
+        return addingPercentEncoding(withAllowedCharacters: unreservedCharsSet)
+    }
+    
     /**
      Get RC4+Base64 encrypted string representation.
      */
@@ -175,7 +183,7 @@ public extension String {
         if let data = self.data(using: .utf8),
             let encrypted = RC4Cryptor.encrypt(data: data) {
             let base64 = encrypted.base64EncodedString()
-            return base64.replacingOccurrences(of: "/", with: "_")
+            return base64.RFC3986UnreservedEncoded
         }
         return nil
     }
@@ -184,11 +192,12 @@ public extension String {
      Get RC4+Base64 decrypted string representation.
      */
     public func rc4Base64Decrypted() -> String? {
-        let string = self.replacingOccurrences(of: "_", with: "/")
-        if let data = string.data(using: .utf8),
-            let base64 = Data(base64Encoded: data),
-            let decrypted = RC4Cryptor.decrypt(data: base64) {
-            return String(data: decrypted, encoding: .utf8)
+        if let string = self.removingPercentEncoding {
+            if let data = string.data(using: .utf8),
+                let base64 = Data(base64Encoded: data),
+                let decrypted = RC4Cryptor.decrypt(data: base64) {
+                return String(data: decrypted, encoding: .utf8)
+            }
         }
         return nil
     }
