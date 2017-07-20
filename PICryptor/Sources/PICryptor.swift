@@ -160,7 +160,7 @@ public extension NSString {
     public func rc4Base58Decrypted() -> NSString? {
         let base58 = Data(bytes: SwiftBase58.decode(self as String))
         if let decrypted = RC4Cryptor.decrypt(data: base58) {
-            return String(data: decrypted, encoding: .utf8)! as NSString
+            return String(data: decrypted, encoding: .utf8) as NSString?
         }
         return nil
     }
