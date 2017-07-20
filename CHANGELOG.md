@@ -1,10 +1,13 @@
 CHANGELOG
 =========
 
-## pi_1.6
+## 1.7
+introduce base58 encoding/decoding for filenames
+
+## 1.6
 use url encode/decode for file names
 
-## pi_1.5
+## 1.5
 determine the path of the executing BASH script
 
 ## 1.4

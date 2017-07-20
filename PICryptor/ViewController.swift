@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let unencryptedFilename = "test.json"
         
         // encrypt the filename, to search it on disk
-        guard let encryptedFilename = unencryptedFilename.rc4Base64Encrypted() else {
+        guard let encryptedFilename = unencryptedFilename.rc4Base58Encrypted() else {
             print("failed to encrypt filename")
             return nil
         }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     func refresh(encryptedFilename: String) {
         
         // form resource file URL
-        guard let URL = s3SyncManager?.url(forResource: encryptedFilename, withExtension: "") else {
+        guard let URL = s3SyncManager?.url(forResource: encryptedFilename, withExtension: nil) else {
             print("failed to form resource file URL")
             return
         }

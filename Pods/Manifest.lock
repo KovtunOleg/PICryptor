@@ -63,7 +63,7 @@ PODS:
   - libextobjc/UmbrellaHeader (0.4.1)
   - ObjectiveSugar (1.1.0)
   - Ono (1.2.2)
-  - SkyS3Sync (0.29):
+  - SkyS3Sync (0.32):
     - AFAmazonS3Manager (~> 3.2)
     - AFNetworking (~> 2.2)
     - AFOnoResponseSerializer (~> 1.0)
@@ -82,7 +82,7 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
-  SkyS3Sync: 13f5add162cbfa3a0f3639de9788a1a00ec7c25d
+  SkyS3Sync: 3d7ffe245a2249d782f22e071c19c4b30dd397b1
 
 PODFILE CHECKSUM: 95632187eb506fc664cd12b8322220323f604dff
 
