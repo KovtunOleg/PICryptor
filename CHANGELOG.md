@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## pi_1.7
+introduce base58 encoding/decoding for filenames
+
 ## pi_1.6
 use url encode/decode for file names
 

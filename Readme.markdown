@@ -21,7 +21,7 @@ Released under the [MIT license](LICENSE). Enjoy.
     carthage update --platform iOS
     ```
 
-3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `PICryptor` and `CommonCrypto` frameworks from the Carthage/Build/iOS folder on disk. 
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `PICryptor`, `CommonCrypto`, `SwiftBase58`, `SwiftGMP` and `SwiftHex` frameworks from the Carthage/Build/iOS folder on disk. 
 On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: /bin/sh), add the following contents to the script area below the shell:
 
     ``` bash
@@ -33,6 +33,9 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     ``` bash
     $(SRCROOT)/Carthage/Build/iOS/PICryptor.framework
     $(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework
+    $(SRCROOT)/Carthage/Build/iOS/SwiftBase58.framework
+    $(SRCROOT)/Carthage/Build/iOS/SwiftGMP.framework
+    $(SRCROOT)/Carthage/Build/iOS/SwiftHex.framework
     ```
 
     Add the paths to the copied frameworks to the “Output Files”, e.g.:
@@ -40,9 +43,12 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     ``` bash
     $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PICryptor.framework
     $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework
+    $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftBase58.framework
+    $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftGMP.framework
+    $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework
     ```
 
-    ![Alt text](https://monosnap.com/file/pODILgdZnD2BpRTBtcUpSuB3YsIpaS.png)
+    ![Alt text](https://monosnap.com/file/zBefGdgUhGQFZ2cRHQRydPhUpORaCt.png)
 
 4. Enable embedded Swift content (for Objective C apps) in the project settings.
 ![Alt text](https://monosnap.com/file/Rmyn6j1mxcrrI2QgVDCOqyWeZShftQ.png)
@@ -50,7 +56,7 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 5. For UnitTests/UITests targets Look for the *Framework Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
 ![Alt text](https://monosnap.com/file/r5ZUscoOTH8csq7DCJjHMiKTiq7Aqi.png)
 
-6. Run `install.sh` script located in `Carthage/Checkouts/PICryptor/Scripts` folder, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
+6. Run `install.sh` script located in `Carthage/Checkouts/PICryptor/Scripts` folder, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project. Also run `pip install base58` because it is used for file name encoding/decoding: 
 
     ![Alt text](https://monosnap.com/file/19rv3rlFPYhztdLbcoZlFW0RqppWiu.png)
     
@@ -59,6 +65,7 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     chmod u+x install.sh
     ./install.sh
     ./genkey.sh E86A53E1E6B5E1321615FD9FB90A7CAA > picryptor_key.swift
+    pip install base58
     ```
 
 ## Usage
@@ -93,9 +100,9 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     
     import PICryptor
     
-    let encryptedString = unencryptedString.rc4Base64Encrypted()
+    let encryptedString = unencryptedString.rc4Base58Encrypted()
     
-    let decryptedString = encryptedString.rc4Base64Decrypted()
+    let decryptedString = encryptedString.rc4Base58Decrypted()
 
     let unencryptedData = encryptedData.rc4Decrypted()
 
@@ -107,9 +114,9 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     
     #import <PICryptor/PICryptor-Swift.h>
     
-    NSString *encryptedString = [unencryptedString rc4Base64Encrypted];
+    NSString *encryptedString = [unencryptedString rc4Base58Encrypted];
     
-    NSString *decryptedString = [encryptedString rc4Base64Decrypted];
+    NSString *decryptedString = [encryptedString rc4Base58Decrypted];
 
     NSData *unencryptedData = [encryptedData rc4Decrypted];
 
@@ -149,7 +156,7 @@ On your application targets’ “Build Phases” settings tab, click the “+�
     ![Alt text](https://monosnap.com/file/4JarRmRgeK47dKaGs5OsNm7ahTwOjm.png)
     * So when you are done, everything should look like this.
 
-    ![Alt text](https://monosnap.com/file/YdSNlYWpsFYbdoMBin6YCJO9VmnMjW.png)
+    ![Alt text](https://monosnap.com/file/KslJfdzoj70E4KdQAoylleVwsePEqd.png)
 
 4. If you want to upload an unencrypted file to the Amazon S3 encrypted bucket: 
 
