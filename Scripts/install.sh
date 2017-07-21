@@ -10,3 +10,6 @@ for script in "${scripts[@]}"
     ln -s $PWD/$script $BIN/$script
     chmod u+x $BIN/$script
 done
+
+# install base58 python lib - it is used for file name encoding/decoding process
+pip install --prefix=/usr/local/bin base58
