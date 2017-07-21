@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630390231EEFCD09003205FF /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
-		630390241EEFCD0C003205FF /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		6303902C1EEFD4F4003205FF /* s3_bucket in Resources */ = {isa = PBXBuildFile; fileRef = 6303902B1EEFD4F4003205FF /* s3_bucket */; };
 		630788261F20A5D60068ECB5 /* ytY7Z8YFZwoS in Resources */ = {isa = PBXBuildFile; fileRef = 630788251F20A5D60068ECB5 /* ytY7Z8YFZwoS */; };
 		631166C81EEED30900C740F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631166C71EEED30900C740F2 /* AppDelegate.swift */; };
@@ -24,18 +22,14 @@
 		635A4D341F20974100070587 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D331F20974100070587 /* SwiftBase58.framework */; };
 		635A4D361F20974C00070587 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D351F20974C00070587 /* SwiftGMP.framework */; };
 		635A4D381F20975400070587 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D371F20975400070587 /* SwiftHex.framework */; };
-		635A4D3F1F20983E00070587 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3C1F20983E00070587 /* SwiftBase58.framework */; };
-		635A4D401F20983E00070587 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3D1F20983E00070587 /* SwiftGMP.framework */; };
-		635A4D411F20983E00070587 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3E1F20983E00070587 /* SwiftHex.framework */; };
-		635A4D421F2098D900070587 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3C1F20983E00070587 /* SwiftBase58.framework */; };
-		635A4D431F2098E000070587 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3D1F20983E00070587 /* SwiftGMP.framework */; };
-		635A4D441F2098E600070587 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D3E1F20983E00070587 /* SwiftHex.framework */; };
 		635A4D451F2099A200070587 /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
 		635A4D461F2099A200070587 /* PICryptor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		638670A41EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		638670A51EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
-		6399C66B1F06404D00C0096E /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630390201EEFCCFF003205FF /* CommonCrypto.framework */; };
 		6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
+		63CF9DB01F22340900BE11B9 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D371F20975400070587 /* SwiftHex.framework */; };
+		63CF9DB11F22340C00BE11B9 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D351F20974C00070587 /* SwiftGMP.framework */; };
+		63CF9DB21F22340F00BE11B9 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635A4D331F20974100070587 /* SwiftBase58.framework */; };
 		BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +68,6 @@
 		0EBC3942A566498D1EA657EE /* Pods-PICryptorApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PICryptorApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PICryptorApp/Pods-PICryptorApp.release.xcconfig"; sourceTree = "<group>"; };
 		4517B098523780E07D7B49CF /* Pods-PICryptorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PICryptorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PICryptorApp/Pods-PICryptorApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PICryptorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		630390201EEFCCFF003205FF /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = ../../Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		630390271EEFD05B003205FF /* s3_bucket_unencrypted */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3_bucket_unencrypted; sourceTree = "<group>"; };
 		6303902B1EEFD4F4003205FF /* s3_bucket */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3_bucket; sourceTree = "<group>"; };
 		630788251F20A5D60068ECB5 /* ytY7Z8YFZwoS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ytY7Z8YFZwoS; sourceTree = "<group>"; };
@@ -95,9 +88,6 @@
 		635A4D331F20974100070587 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
 		635A4D351F20974C00070587 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = "<group>"; };
 		635A4D371F20975400070587 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = "<group>"; };
-		635A4D3C1F20983E00070587 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = SOURCE_ROOT; };
-		635A4D3D1F20983E00070587 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = SOURCE_ROOT; };
-		635A4D3E1F20983E00070587 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = SOURCE_ROOT; };
 		638670A31EF1351C00D91E3F /* picryptor_key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picryptor_key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +100,6 @@
 				635A4D381F20975400070587 /* SwiftHex.framework in Frameworks */,
 				635A4D361F20974C00070587 /* SwiftGMP.framework in Frameworks */,
 				635A4D341F20974100070587 /* SwiftBase58.framework in Frameworks */,
-				6399C66B1F06404D00C0096E /* CommonCrypto.framework in Frameworks */,
 				BCBEEB4FE5F838A8C0B57DDC /* Pods_PICryptorApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,11 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				635A4D441F2098E600070587 /* SwiftHex.framework in Frameworks */,
-				635A4D431F2098E000070587 /* SwiftGMP.framework in Frameworks */,
-				635A4D421F2098D900070587 /* SwiftBase58.framework in Frameworks */,
+				63CF9DB01F22340900BE11B9 /* SwiftHex.framework in Frameworks */,
+				63CF9DB11F22340C00BE11B9 /* SwiftGMP.framework in Frameworks */,
+				63CF9DB21F22340F00BE11B9 /* SwiftBase58.framework in Frameworks */,
 				6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */,
-				630390231EEFCD09003205FF /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,10 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				635A4D401F20983E00070587 /* SwiftGMP.framework in Frameworks */,
-				635A4D411F20983E00070587 /* SwiftHex.framework in Frameworks */,
-				635A4D3F1F20983E00070587 /* SwiftBase58.framework in Frameworks */,
-				630390241EEFCD0C003205FF /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +193,6 @@
 		631166EA1EEED3B300C740F2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				635A4D3C1F20983E00070587 /* SwiftBase58.framework */,
-				635A4D3D1F20983E00070587 /* SwiftGMP.framework */,
-				635A4D3E1F20983E00070587 /* SwiftHex.framework */,
-				630390201EEFCCFF003205FF /* CommonCrypto.framework */,
 				631166ED1EEED3B300C740F2 /* PICryptor.swift */,
 				638670A31EF1351C00D91E3F /* picryptor_key.swift */,
 			);
