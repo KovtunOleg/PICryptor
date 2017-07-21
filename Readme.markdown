@@ -56,7 +56,10 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 5. For UnitTests/UITests targets Look for the *Framework Search Paths* build setting and add to it `"$(PROJECT_DIR)/Carthage/Build/iOS"`
 ![Alt text](https://monosnap.com/file/r5ZUscoOTH8csq7DCJjHMiKTiq7Aqi.png)
 
-6. Run `install.sh` script located in `Carthage/Checkouts/PICryptor/Scripts` folder, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
+6. For all targets look for the *Import Paths* build setting and add to it `"$(SRCROOT)/Carthage/Checkouts/SwiftGMP/GMP"`
+![Alt text](https://monosnap.com/file/ShcYfCZAecPm4hCqDcURoKUxYojmSV.png)
+
+7. Run `install.sh` script located in `Carthage/Checkouts/PICryptor/Scripts` folder, it will generate all needed symlinks for PICryptor scripts and make them executable out of the box, then run `genkey.sh` script with your own secret key as a parameter and redirect its output to some file (f.e. `picryptor_key.swift`) which you need to add into your project: 
 
     ![Alt text](https://monosnap.com/file/19rv3rlFPYhztdLbcoZlFW0RqppWiu.png)
     
