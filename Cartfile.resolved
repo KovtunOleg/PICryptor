@@ -1,4 +1,4 @@
-github "soffes/CommonCrypto" "v1.1.0"
-github "NeoTeo/SwiftGMP" "0dab3c85c82a38a63c376017bc41b65b7950490b"
+github "KovtunOleg/SwiftBase58" "2044d5344d727428c1fa422d0f535cc0cf0a6173"
+github "KovtunOleg/SwiftGMP" "8b3cd096c662a72c5f921d4a6c968a3a4ea4e426"
 github "NeoTeo/SwiftHex" "v0.3"
-github "NeoTeo/SwiftBase58" "8f9e220c64ba1d4b1af9ef818cee6bee7762a375"
+github "soffes/CommonCrypto" "v1.1.0"
