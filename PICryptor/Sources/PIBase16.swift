@@ -92,13 +92,14 @@ public enum PIBase16 {
                 let bigChar = encodedBytes[encodedReadOffset]
                 let littleChar = encodedBytes[encodedReadOffset + 1]
                 
-                let bigNibble = decodingTable[Int(bigChar)]!
-                let littleNibble = decodingTable[Int(littleChar)]!
-                
-                let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
-                decodedBytes[decodedWriteOffset] = decodedByte
-                
-                decodedWriteOffset += unencodedBlockSize
+                if let bigNibble = decodingTable[Int(bigChar)],
+                    let littleNibble = decodingTable[Int(littleChar)] {
+                    
+                    let decodedByte = ((bigNibble & 0b00001111) << 4) | (littleNibble & 0b00001111)
+                    decodedBytes[decodedWriteOffset] = decodedByte
+                    
+                    decodedWriteOffset += unencodedBlockSize
+                }
             }
         }
         

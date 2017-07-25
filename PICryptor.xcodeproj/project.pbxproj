@@ -83,9 +83,6 @@
 		631166F51EEEDC6100C740F2 /* PICryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PICryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		631166F71EEEDC6100C740F2 /* PICryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICryptor.h; sourceTree = "<group>"; };
 		631166F81EEEDC6100C740F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		635A4D331F20974100070587 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
-		635A4D351F20974C00070587 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = "<group>"; };
-		635A4D371F20975400070587 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = "<group>"; };
 		638670A31EF1351C00D91E3F /* picryptor_key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picryptor_key.swift; sourceTree = "<group>"; };
 		63CBF85C1F27A0DD00434081 /* PIBase16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIBase16.swift; sourceTree = "<group>"; };
 		63CBF8601F27A52500434081 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
@@ -210,9 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				63CBF8601F27A52500434081 /* CommonCrypto.framework */,
-				635A4D371F20975400070587 /* SwiftHex.framework */,
-				635A4D351F20974C00070587 /* SwiftGMP.framework */,
-				635A4D331F20974100070587 /* SwiftBase58.framework */,
 				5D9D6B9517E80465375C5C80 /* Pods_PICryptorApp.framework */,
 			);
 			name = Frameworks;
