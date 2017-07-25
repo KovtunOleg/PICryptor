@@ -8,7 +8,6 @@
 
 import Foundation
 import CommonCrypto
-import SwiftBase58
 
 fileprivate enum PICryptorError: Error {
     case unknownError
@@ -73,14 +72,14 @@ fileprivate enum PICryptorError: Error {
  * openssl encryption of a file content:
  * openssl rc4 -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  * 
- * encrypting a string and outputting a base58:
- * echo -n <infilename> | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base58
+ * encrypting a string and outputting a base16:
+ * echo -n <infilename> | openssl rc4 -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA | base16
  * 
  * decrypting contents of a file:
  * openssl rc4 -d -in <infile> -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA  > <outfile>
  *
- * decyrpting a base58 filename:
- * echo -n <infilename> | base58 -d | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
+ * decyrpting a base16 filename:
+ * echo -n <infilename> | base16 -d | openssl rc4 -d -nosalt -K E86A53E1E6B5E1321615FD9FB90A7CAA
  */
 fileprivate enum RC4Cryptor {
     public static func decrypt(data: Data) -> Data? {
@@ -143,23 +142,23 @@ public extension Data {
 
 public extension NSString {
     /**
-     Get RC4+Base58 encrypted string representation.
+     Get RC4+base16 encrypted string representation.
      */
-    public func rc4Base58Encrypted() -> NSString? {
+    public func rc4base16Encrypted() -> NSString? {
         if let data = data(using: String.Encoding.utf8.rawValue),
             let encrypted = RC4Cryptor.encrypt(data: data) {
-            let base58 = SwiftBase58.encode([UInt8](encrypted))
-            return base58 as NSString
+            let base16 = PIBase16.encode(encrypted)
+            return base16 as NSString
         }
         return nil
     }
     
     /**
-     Get RC4+Base58 decrypted string representation.
+     Get RC4+base16 decrypted string representation.
      */
-    public func rc4Base58Decrypted() -> NSString? {
-        let base58 = Data(bytes: SwiftBase58.decode(self as String))
-        if let decrypted = RC4Cryptor.decrypt(data: base58) {
+    public func rc4base16Decrypted() -> NSString? {
+        if let base16 = PIBase16.decode(self as String),
+            let decrypted = RC4Cryptor.decrypt(data: base16) {
             return String(data: decrypted, encoding: .utf8) as NSString?
         }
         return nil
@@ -169,23 +168,23 @@ public extension NSString {
 public extension String {
     
     /**
-     Get RC4+Base58 encrypted string representation.
+     Get RC4+base16 encrypted string representation.
      */
-    public func rc4Base58Encrypted() -> String? {
+    public func rc4base16Encrypted() -> String? {
         if let data = data(using: .utf8),
             let encrypted = RC4Cryptor.encrypt(data: data) {
-            let base58 = SwiftBase58.encode([UInt8](encrypted))
-            return base58
+            let base16 = PIBase16.encode(encrypted)
+            return base16
         }
         return nil
     }
     
     /**
-     Get RC4+Base58 decrypted string representation.
+     Get RC4+base16 decrypted string representation.
      */
-    public func rc4Base58Decrypted() -> String? {
-        let base58 = Data(bytes: SwiftBase58.decode(self))
-        if let decrypted = RC4Cryptor.decrypt(data: base58) {
+    public func rc4base16Decrypted() -> String? {
+        if let base16 = PIBase16.decode(self),
+            let decrypted = RC4Cryptor.decrypt(data: base16) {
             return String(data: decrypted, encoding: .utf8)
         }
         return nil

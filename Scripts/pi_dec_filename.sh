@@ -12,4 +12,4 @@ if [[ $# -lt 2 ]]; then
 fi
 
 # return decrypted file name
-echo `echo -n $FILE_NAME | base58 -d | openssl rc4 -d -nosalt -K $SECRET_KEY`
+echo `echo -n $FILE_NAME | pi_base16.sh -d | openssl rc4 -d -nosalt -K $SECRET_KEY`

@@ -17,11 +17,11 @@ class PICryptorTest: XCTestCase {
         PICryptor.secretKey = PICryptorSecretKey
         
         // encrypt the filename, to search it on disk
-        let encryptedFilename = "test.json".rc4Base58Encrypted()
-        XCTAssertEqual(encryptedFilename, "ytY7Z8YFZwoS", "failed to encrypt filename")
+        let encryptedFilename = "test.json".rc4base16Encrypted()
+        XCTAssertEqual(encryptedFilename, "4d0ea3b14049d85e1d", "failed to encrypt filename")
         
         // check backwards decryption
-        let decryptedFilename = encryptedFilename?.rc4Base58Decrypted()
+        let decryptedFilename = encryptedFilename?.rc4base16Decrypted()
         XCTAssertEqual(decryptedFilename, "test.json", "failed to encrypt filename")
         
         // form resource file URL

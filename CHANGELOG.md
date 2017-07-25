@@ -1,28 +1,31 @@
 CHANGELOG
 =========
 
-## pi_1.7
+## 1.8
+use base16 encoding/decoding for filenames
+
+## 1.7
 introduce base58 encoding/decoding for filenames
 
-## pi_1.6
+## 1.6
 use url encode/decode for file names
 
-## pi_1.5
+## 1.5
 determine the path of the executing BASH script
 
-## pi_1.4
+## 1.4
 scripts should accept key as a first param
 
-## pi_1.3
+## 1.3
 develop decryption util scripts
 remove scripts from the framework bundle
 other enhancements for the scripts
 
-## pi_1.2 
+## 1.2 
 all PICryptor scripts are prefixed with ‘pi_’
 
-## pi_1.1
+## 1.1
 frameworks minimum deployment target changed to 8.0. Install process improved.
 
-## pi_1.0
+## 1.0
 initial commit

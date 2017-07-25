@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let unencryptedFilename = "test.json"
         
         // encrypt the filename, to search it on disk
-        guard let encryptedFilename = unencryptedFilename.rc4Base58Encrypted() else {
+        guard let encryptedFilename = unencryptedFilename.rc4base16Encrypted() else {
             print("failed to encrypt filename")
             return nil
         }

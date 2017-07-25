@@ -1,4 +1,1 @@
 github "soffes/CommonCrypto" "v1.1.0"
-github "NeoTeo/SwiftGMP" "0dab3c85c82a38a63c376017bc41b65b7950490b"
-github "NeoTeo/SwiftHex" "v0.3"
-github "NeoTeo/SwiftBase58" "8f9e220c64ba1d4b1af9ef818cee6bee7762a375"
