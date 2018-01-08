@@ -53,6 +53,7 @@ fileprivate enum PICryptorError: Error {
         }
         
         ref = cryptorRefPointer.pointee!
+        cryptorRefPointer.deallocate(capacity: 1)
     }
     
     fileprivate func update(with data: Data) -> Data? {
@@ -61,6 +62,8 @@ fileprivate enum PICryptorError: Error {
             let dataOutPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: data.count)
             CCCryptorUpdate(ref, body, data.count, dataOutPointer, data.count, dataOutMovedPointer)
             let dataOut = Data(bytes: dataOutPointer, count: dataOutMovedPointer.pointee)
+            dataOutMovedPointer.deallocate(capacity: 1)
+            dataOutPointer.deallocate(capacity: data.count)
             return dataOut
         }
         return dataOut

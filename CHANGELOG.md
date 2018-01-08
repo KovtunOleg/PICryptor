@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.9
+fix memory leaks in [PICryptor init:] and [PICryptor update:] methods
+
 ## 1.8
 use base16 encoding/decoding for filenames
 
