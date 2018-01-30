@@ -13,7 +13,7 @@ import Foundation\n \
 let PICryptorSecretKey = Data(bytes: [0x"; for (i=1;i<length($0);i+=2) s = s substr($0,i,2) ", 0x"; s = substr(s,1,length(s)-4); s = s "])\n\n"; \
 print s \
 "public extension NSData { \
-    public static func piCryptorSecretKey() -> NSData { \
+    @objc public static func piCryptorSecretKey() -> NSData { \
         return PICryptorSecretKey as NSData \
     } \
 }"}'

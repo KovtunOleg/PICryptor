@@ -13,7 +13,7 @@ import SkyS3Sync
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var s3SyncManager: SkyS3SyncManager?
+    @objc var s3SyncManager: SkyS3SyncManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

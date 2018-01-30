@@ -23,7 +23,7 @@ fileprivate enum PICryptorError: Error {
     /**
      Raw key material used for RC4 encryption algorithm.
      */
-    public static var secretKey: Data?
+    @objc public static var secretKey: Data?
     
     fileprivate var ref: CCCryptorRef
     
@@ -115,14 +115,14 @@ public extension NSData {
     /**
      Get RC4 encrypted data representation.
      */
-    public func rc4Encrypted() -> NSData? {
+    @objc public func rc4Encrypted() -> NSData? {
         return RC4Cryptor.encrypt(data: self as Data)! as NSData
     }
     
     /**
      Get RC4 decrypted data representation.
      */
-    public func rc4Decrypted() -> NSData? {
+    @objc public func rc4Decrypted() -> NSData? {
        return RC4Cryptor.decrypt(data: self as Data)! as NSData
     }
 }
@@ -147,7 +147,7 @@ public extension NSString {
     /**
      Get RC4+base16 encrypted string representation.
      */
-    public func rc4base16Encrypted() -> NSString? {
+    @objc public func rc4base16Encrypted() -> NSString? {
         if let data = data(using: String.Encoding.utf8.rawValue),
             let encrypted = RC4Cryptor.encrypt(data: data) {
             let base16 = PIBase16.encode(encrypted)
@@ -159,7 +159,7 @@ public extension NSString {
     /**
      Get RC4+base16 decrypted string representation.
      */
-    public func rc4base16Decrypted() -> NSString? {
+    @objc public func rc4base16Decrypted() -> NSString? {
         if let base16 = PIBase16.decode(self as String),
             let decrypted = RC4Cryptor.decrypt(data: base16) {
             return String(data: decrypted, encoding: .utf8) as NSString?

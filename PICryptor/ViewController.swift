@@ -12,9 +12,9 @@ import SkyS3Sync
 
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView?
-    weak var s3SyncManager: SkyS3SyncManager?
+    @objc weak var s3SyncManager: SkyS3SyncManager?
     
-    lazy var encryptedFilename: String? = {
+    @objc lazy var encryptedFilename: String? = {
         let unencryptedFilename = "test.json"
         
         // encrypt the filename, to search it on disk
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     
-    func refresh(encryptedFilename: String) {
+    @objc func refresh(encryptedFilename: String) {
         
         // form resource file URL
         guard let URL = s3SyncManager?.url(forResource: encryptedFilename, withExtension: nil) else {
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     // MARK: - Notifications
     
-    func didChangeResource(notification: Notification) {
+    @objc func didChangeResource(notification: Notification) {
         let fileName = notification.userInfo?[SkyS3ResourceFileName] as! String
 
         if (encryptedFilename?.contains(fileName))! {

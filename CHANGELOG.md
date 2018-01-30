@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.10
+CommonCrypto: use modulemap approach.
+
 ## 1.9
 fix memory leaks in [PICryptor init:] and [PICryptor update:] methods
 
