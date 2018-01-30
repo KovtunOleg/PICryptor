@@ -23,25 +23,23 @@ Released under the [MIT license](LICENSE). Enjoy.
     carthage update --platform iOS
     ```
 
-3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `PICryptor` and `CommonCrypto` frameworks from the Carthage/Build/iOS folder on disk. 
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `PICryptor` framework from the Carthage/Build/iOS folder on disk. 
 On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: /bin/sh), add the following contents to the script area below the shell:
 
     ``` bash
     /usr/local/bin/carthage copy-frameworks
     ```
 
-    Add the paths to the frameworks you want to use under “Input Files”, e.g.:
+    Add the path to the framework you want to use under “Input Files”, e.g.:
 
     ``` bash
     $(SRCROOT)/Carthage/Build/iOS/PICryptor.framework
-    $(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework
     ```
 
-    Add the paths to the copied frameworks to the “Output Files”, e.g.:
+    Add the path to the copied framework to the “Output Files”, e.g.:
 
     ``` bash
     $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PICryptor.framework
-    $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework
     ```
 
     ![Alt text](https://monosnap.com/file/HyoEcv2KiKuAs9gx4tsHrXPqm0wRy7.png)

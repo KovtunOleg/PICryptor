@@ -23,7 +23,7 @@
 		638670A41EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		638670A51EF1351C00D91E3F /* picryptor_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638670A31EF1351C00D91E3F /* picryptor_key.swift */; };
 		6399C66E1F06436800C0096E /* PICryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631166F51EEEDC6100C740F2 /* PICryptor.framework */; };
-		63A852B620205C2900BA330B /* module.modulemap in Sources */ = {isa = PBXBuildFile; fileRef = 63AA05C320205325009AD107 /* module.modulemap */; };
+		63A852BE20206EA800BA330B /* module.modulemap in Sources */ = {isa = PBXBuildFile; fileRef = 63A852BD20206EA100BA330B /* module.modulemap */; };
 		63CBF85D1F27A0DD00434081 /* PIBase16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBF85C1F27A0DD00434081 /* PIBase16.swift */; };
 		63CBF85E1F27A19200434081 /* PIBase16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBF85C1F27A0DD00434081 /* PIBase16.swift */; };
 		63CBF85F1F27A19300434081 /* PIBase16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBF85C1F27A0DD00434081 /* PIBase16.swift */; };
@@ -83,7 +83,7 @@
 		631166F71EEEDC6100C740F2 /* PICryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICryptor.h; sourceTree = "<group>"; };
 		631166F81EEEDC6100C740F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638670A31EF1351C00D91E3F /* picryptor_key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = picryptor_key.swift; sourceTree = "<group>"; };
-		63AA05C320205325009AD107 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		63A852BD20206EA100BA330B /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		63CBF85C1F27A0DD00434081 /* PIBase16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIBase16.swift; sourceTree = "<group>"; };
 		63CBF8631F27A5AC00434081 /* 4d0ea3b14049d85e1d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 4d0ea3b14049d85e1d; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +184,7 @@
 		631166EA1EEED3B300C740F2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				63AA05C220205325009AD107 /* CCommonCrypto */,
+				63A852BC20206EA100BA330B /* CommonCrypto */,
 				631166ED1EEED3B300C740F2 /* PICryptor.swift */,
 				63CBF85C1F27A0DD00434081 /* PIBase16.swift */,
 				638670A31EF1351C00D91E3F /* picryptor_key.swift */,
@@ -209,13 +209,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		63AA05C220205325009AD107 /* CCommonCrypto */ = {
+		63A852BC20206EA100BA330B /* CommonCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				63AA05C320205325009AD107 /* module.modulemap */,
+				63A852BD20206EA100BA330B /* module.modulemap */,
 			);
-			path = CCommonCrypto;
-			sourceTree = "<group>";
+			name = CommonCrypto;
+			path = Scripts/CommonCrypto;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -460,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63A852B620205C2900BA330B /* module.modulemap in Sources */,
+				63A852BE20206EA800BA330B /* module.modulemap in Sources */,
 				631167021EEEDC6A00C740F2 /* PICryptor.swift in Sources */,
 				63CBF85D1F27A0DD00434081 /* PIBase16.swift in Sources */,
 			);
@@ -620,7 +621,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -637,7 +638,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -652,7 +653,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PICryptorApp.app/PICryptorApp";
 			};
@@ -668,7 +669,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PICryptorApp.app/PICryptorApp";
 			};
@@ -691,7 +692,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -715,7 +716,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Postindustria.PICryptor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/PICryptor/Sources/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Scripts/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

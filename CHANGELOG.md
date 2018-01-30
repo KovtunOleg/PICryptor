@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.11
+CommonCrypto: ‘modulemap’ moved to Scripts folder. Documentation updated.
+
 ## 1.10
 CommonCrypto: use modulemap approach.
 
