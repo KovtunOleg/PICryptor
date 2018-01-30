@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+## 1.12
+CommonCrypto: add ‘import paths’ step to Readme.markdown.
+
 ## 1.11
 CommonCrypto: ‘modulemap’ moved to Scripts folder. Documentation updated.
 
